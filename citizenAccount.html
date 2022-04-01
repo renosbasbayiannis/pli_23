@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Τίτλος σελίδας -->
+<title>Πλατφόρμα εμβολιασμού</title>
+<meta charset="utf-8">
+<!-- Για responsive web design -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Χρήση εξωτερικού css αρχείου για μορφοποίηση των σελίδων -->
+<link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen">
+
+<script src="js/jsscript.js?<?php echo filemtime('js/jsscript.js'); ?>"> >
+</script>
+
+</head>
+
+<!-- Header της σελίδας -->
+<header>
+  <table class="header-table">
+    <tr>
+    <!-- Αριστερό τμήμα: Εικόνα εμβολιαστικού προγράμματος -->	
+    <td class="header-left"> 
+      <!-- Η εικόνα είναι σύνδεσμος στην αρχική σελίδα -->	
+	  <a href="index.html">
+	  <img id="logo" src="images/logo.jpg" alt="Σήμα εμβολιαστικού προγράμματος" /></a>
+	</td>
+	<!-- Μεσαίο τμήμα: Τίτλος εμβολιαστικού προγράμματος -->	
+	<td class="header-center">
+	  <h1><strong>Πλατφόρμα εμβολιασμού</strong></h1>
+	  <h2>Υπουργείο Yγείας</h2>
+	</td>
+	</tr>
+  </table>
+</header>
+
+<body>
+
+<script>
+	checkForActiveSession();
+</script>
+
+<!-- Κυρίως μέρος της σελίδας -->	
+<table class="main_part">
+  <tr>
+    <!-- Αριστερό τμήμα: μενού -->	
+	<td class="menu">
+	  <!-- Πίνακας με τα στοιχεία του μενού 
+	  Κάθε στοιχείο συνδέεται στην αντίστοιχη σελίδα -->
+	  <table class="menu_table">
+	    <tr>
+		<td><a href="index.html">Αρχική σελίδα</a></td>
+		</tr>
+		<tr>
+		<td><a href="vaccination_centers.html">Εμβολιαστικά κέντρα</a></td>
+		</tr>
+		<tr>
+		<td><a href="vaccination_instructions.html">Οδηγίες εμβολιασμού</a></td>
+		</tr>
+		<tr>
+		<td><a href="login_instructions.html">Οδηγίες εγγραφής / εισόδου</a></td>
+		</tr>
+		<tr>
+		<td><a href="announcements.html">Ανακοινώσεις</a></td>
+		</tr>
+	  </table>
+	</td>
+	<!-- Κυρίως τμήμα -->	
+	<td class="main_board">
+	  <div class="menu_user" style="">
+		<a href="citizenHomepage.html" \>Αρχική σελίδα Χρήστη</a>
+		<a href="citizenAccount.html" class="active_menu_item">Ο Λογαριασμός μου</a> 
+		<a href="http://localhost/ge3/php/validateVaccAge.php">Ραντεβού</a>          
+		<a href="http://localhost/ge3/php/logout.php">Αποσύνδεση</a>        
+	  </div>
+	  <h1>
+	  <strong>Στοιχεία Χρήστη:</strong>
+	  </h1>
+	  <div class="user_data" id="user_data_id">
+	  <script>
+	  {
+	  getUserData();
+	  }
+	  </script>
+	  </div>
+	  <p></p>
+	  <div class="user_data">
+		<p>
+	    <button class="button any-button" onclick="openChangeUserDataForm()"> Αλλαγή στοιχείων </button>
+	    </p>
+	  </div>
+	  <div class="user_data change_user_data_form" id="change_user_data_form_id" style="display: none">
+		<script>
+		  {
+		    const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+			  const user_data_obj = JSON.parse(this.responseText);
+			  let text = '<h3>Αλλαγή στοιχείων χρήστη</h3>';
+			  text += '<p>Παρακαλώ εισάγετε όλα τα υποχρεωτικά πεδία (*) και πατήστε το κουμπί "Αλλαγή"</p>';
+			  
+			  text += '<form name="changeUserDataForm" id="changeUserDataForm" action="http://localhost/ge3/php/changeUserData.php" method="POST" onsubmit="return validateUserData()" class="user_data">';
+			  if (user_data_obj.length > 0) {
+				text += '<table class="login_table">';
+				  text += '<tr>';
+					text += '<td><label for="identity">Αριθμός ταυτότητας <span style="color:red">*</span> </label></td>';
+					text += '<td><input type="text" name="identity" form="changeUserDataForm" value=\''+user_data_obj[0][0]+'\'></td>';
+				  text += '</tr>';
+				  
+				  text += '<tr>';
+					text += '<td><label for="age">Ηλικία <span style="color:red">*</span></label></td>';
+					text += '<td><input type="text" name="age" form="changeUserDataForm" value='+user_data_obj[0][1]+'></td>';
+				  text += '</tr>';
+				  
+				  text += '<tr>';
+					text += '<td><label for="email">Email</label></td>';
+					text += '<td><input type="text" name="email" form="changeUserDataForm" value=\''+user_data_obj[0][2]+'\'></td>';
+				  text += '</tr>';
+				  text += '<tr>';
+					text += '<td><label for="cellphone">Κινητό τηλέφωνο <span style="color:red">*</span></label></td>';
+					text += '<td><input type="text" name="cellphone" form="changeUserDataForm" value=\''+user_data_obj[0][3]+'\'></td>';
+				  text += '</tr>';
+				text += '</table>';
+			  }
+			  text += '<p></p>';
+			  text += '<button type="submit" class="button any-button" form="changeUserDataForm">Αλλαγή στοιχείων</button>';
+			  text += '<p></p>';
+			  text += '<button type="button" class="button any-button cancel" onclick="closeChangeUserDataForm()">Άκυρο</button>';
+			  text += '</form>';
+			
+			  document.getElementById("change_user_data_form_id").innerHTML = text;
+			}
+			xhttp.open("GET", "http://localhost/ge3/php/getChangeableUserData.php");
+			xhttp.send();
+		  }
+	    </script>
+	  </div>
+	</td>
+  </tr>	
+</table>
+</body>
+
+<!-- Footer της σελίδας -->
+<footer>
+  <table style="width:100%">
+    <tr>
+	  <td style="text-align: center;">
+	      <br>
+		  <!-- Σύνδεσμος στους Όρους Χρήσης σε νέα καρτέλα -->	
+		  <a title="Όροι Χρήσης" href="documents/terms.pdf" target="_blank">Όροι Χρήσης</a> |
+		  <!-- Σύνδεσμος στην Πολιτική Απορρήτου σε νέα καρτέλα -->	
+		  <a title="Πολιτική απορρήτου" href="documents/policy.pdf" target="_blank"">Πολιτική απορρήτου</a>
+		  <br><br>
+	  </td>
+	</tr>
+  </table>
+</footer>
+
+
+</html>
+
+

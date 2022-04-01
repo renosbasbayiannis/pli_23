@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Τίτλος σελίδας -->
+<title>Πλατφόρμα εμβολιασμού</title>
+<meta charset="utf-8">
+<!-- Για responsive web design -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Χρήση εξωτερικού css αρχείου για μορφοποίηση των σελίδων -->
+<link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen">
+
+<script src="js/jsscript.js?<?php echo filemtime('js/jsscript.js'); ?>"> >
+</script>
+
+</head>
+
+<!-- Header της σελίδας -->
+<header>
+  <table class="header-table">
+    <tr>
+    <!-- Αριστερό τμήμα: Εικόνα εμβολιαστικού προγράμματος -->	
+    <td class="header-left"> 
+      <!-- Η εικόνα είναι σύνδεσμος στην αρχική σελίδα -->	
+	  <a href="index.html">
+	  <img id="logo" src="images/logo.jpg" alt="Σήμα εμβολιαστικού προγράμματος" /></a>
+	</td>
+	<!-- Μεσαίο τμήμα: Τίτλος εμβολιαστικού προγράμματος -->	
+	<td class="header-center">
+	  <h1><strong>Πλατφόρμα εμβολιασμού</strong></h1>
+	  <h2>Υπουργείο Yγείας</h2>
+	</td>
+	<!-- Δεξί τμήμα: κουμπί Εισόδου / Εγγραφής -->	
+	<td class="header-right">
+	<!-- Μορφοποίηση στο κέντρο: Ανοίγει την login σελίδα -->	
+	  <button class="button any-button centered-button" onclick="document.location='login.html'"> Είσοδος / Εγγραφή </button>
+	</td>
+	</tr>
+  </table>
+</header>
+
+<body>
+
+
+<!-- Κυρίως μέρος της σελίδας -->	
+<table class="main_part">
+  <tr>
+    <!-- Αριστερό τμήμα: μενού -->	
+	<td class="menu">
+	  <!-- Πίνακας με τα στοιχεία του μενού 
+	  Κάθε στοιχείο συνδέεται στην αντίστοιχη σελίδα -->
+	  <table class="menu_table">
+		<tr> <!-- Επιλεγμένο υπομενού -->
+		<td><a href="index.html">Αρχική σελίδα</a></td>
+		</tr>
+		<tr class="active_menu_item">
+		<td><a href="vaccination_centers.html">Εμβολιαστικά κέντρα</a></td>
+		</tr>
+		<tr>
+		<td><a href="vaccination_instructions.html">Οδηγίες εμβολιασμού</a></td>
+		</tr>
+		<tr>
+		<td><a href="login_instructions.html">Οδηγίες εγγραφής / εισόδου</a></td>
+		</tr>
+		<tr>
+		<td><a href="announcements.html">Ανακοινώσεις</a></td>
+		</tr>
+		<tr class="active_session_class" style = "display: none">
+		<td class="active_session_class" style = "display: none"><a id="user_homepage_id" class="active_session_class" style = "display: none"> Αρχική σελίδα Χρήστη</a></td>
+		</tr>
+	  </table>
+	</td>
+	<script>
+	{
+	displayActiveSessionItems();
+	setUserHomepage();
+	}
+	</script>
+	
+	<!-- Κυρίως τμήμα -->	
+	<td class="main_board main_board_no_padding">
+		<!-- Αριστερό Κυρίως τμήμα -->
+		<div class="left_half_main_board half_main_board_padding" >
+		  <h1>
+		  <strong>Εμβολιαστικό κέντρο Αθήνας</strong>
+		  </h1>
+		  <br><br>
+		  <div style="text-align:left">
+		  Διεύθυνση: Λεωφόρος Κηφισίας 39, Μαρούσι<br>
+		  Τ.Κ.: 15123<br>
+		  Τηλέφωνο: 213 2161000<br>
+		  </div>
+		  <br><br>
+		  <!-- Χάρτης google του εμβολιαστικού κέντρου -->
+		  <div class="mapouter vaccination_center_map"><div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%CE%9C%CE%95%CE%93%CE%91%20%CE%95%CE%9C%CE%92%CE%9F%CE%9B%CE%99%CE%91%CE%A3%CE%A4%CE%99%CE%9A%CE%9F%20%CE%9A%CE%95%CE%9D%CE%A4%CE%A1%CE%9F%20%CE%A0%CE%A1%CE%9F%CE%9C%CE%97%CE%98%CE%95%CE%91%CE%A3&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com/divi-discount/"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px;}</style></div></div>
+		  
+		</div>
+		<!-- Δεξί Κυρίως τμήμα -->
+		<div class="right_half_main_board half_main_board_padding">
+		  <h1>
+		  <strong>Εμβολιαστικό κέντρο Θεσσαλονίκης</strong>
+		  </h1>
+		  <br><br>
+		  <div style="text-align:left">
+		  Διεύθυνση: Περίπτερο 13 ΔΕΘ-Θεσσαλονίκης, Θεσσαλονίκη <br>
+		  Τ.Κ.: 54621<br>
+		  Τηλέφωνο: 2310 291512<br>
+		  </div>
+		  <br><br>
+		  <!-- Χάρτης google του εμβολιαστικού κέντρου -->
+		  <div class="mapouter vaccination_center_map"><div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%CE%94%CE%95%CE%98%20%E2%80%93%20HELEXPO%20%CE%98%CE%95%CE%A3%CE%A3%CE%91%CE%9B%CE%9F%CE%9D%CE%99%CE%9A%CE%97&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px;}</style></div></div>
+		
+     </div>
+    </td>
+  </tr>	
+</table>
+  
+</body>
+
+<!-- Footer της σελίδας -->
+<footer>
+  <table style="width:100%">
+    <tr>
+	  <td style="text-align: center;">
+	      <br>
+		  <!-- Σύνδεσμος στους Όρους Χρήσης σε νέα καρτέλα -->	
+		  <a title="Όροι Χρήσης" href="documents/terms.pdf" target="_blank">Όροι Χρήσης</a> |
+		  <!-- Σύνδεσμος στην Πολιτική Απορρήτου σε νέα καρτέλα -->	
+		  <a title="Πολιτική απορρήτου" href="documents/policy.pdf" target="_blank"">Πολιτική απορρήτου</a>
+		  <br><br>
+	  </td>
+	</tr>
+  </table>
+</footer>
+
+
+</html>
+
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Τίτλος σελίδας -->
+<title>Πλατφόρμα εμβολιασμού</title>
+<meta charset="utf-8">
+<!-- Για responsive web design -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Χρήση εξωτερικού css αρχείου για μορφοποίηση των σελίδων -->
+<link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen">
+
+<script src="js/jsscript.js?<?php echo filemtime('js/jsscript.js'); ?>"> 
+</script>
+
+</head>
+
+<!-- Header της σελίδας -->
+<header>
+  <table class="header-table">
+    <tr>
+    <!-- Αριστερό τμήμα: Εικόνα εμβολιαστικού προγράμματος -->	
+    <td class="header-left"> 
+      <!-- Η εικόνα είναι σύνδεσμος στην αρχική σελίδα -->	
+	  <a href="index.html">
+	  <img id="logo" src="images/logo.jpg" alt="Σήμα εμβολιαστικού προγράμματος" /></a>
+	</td>
+	<!-- Μεσαίο τμήμα: Τίτλος εμβολιαστικού προγράμματος -->	
+	<td class="header-center">
+	  <h1><strong>Πλατφόρμα εμβολιασμού</strong></h1>
+	  <h2>Υπουργείο Yγείας</h2>
+	</td>
+	<!-- Δεξί τμήμα: κουμπί Εισόδου / Εγγραφής -->	
+	<td class="header-right">
+	<!-- Μορφοποίηση στο κέντρο: Ανοίγει την login σελίδα -->	
+	  <button class="button any-button centered-button" onclick="document.location='login.html'"> Είσοδος / Εγγραφή </button>
+	</td>
+	</tr>
+  </table>
+</header>
+
+<body>
+
+<!-- Κυρίως μέρος της σελίδας -->	
+<table class="main_part">
+  <tr>
+    <!-- Αριστερό τμήμα: μενού -->	
+	<td class="menu">
+	  <!-- Πίνακας με τα στοιχεία του μενού 
+	  Κάθε στοιχείο συνδέεται στην αντίστοιχη σελίδα -->
+	  <table class="menu_table">
+		<tr class="active_menu_item"> <!-- Επιλεγμένο υπομενού -->
+		<td><a href="index.html">Αρχική σελίδα</a></td>
+		</tr>
+		<tr>
+		<td><a href="vaccination_centers.html">Εμβολιαστικά κέντρα</a></td>
+		</tr>
+		<tr>
+		<td><a href="vaccination_instructions.html">Οδηγίες εμβολιασμού</a></td>
+		</tr>
+		<tr>
+		<td><a href="login_instructions.html">Οδηγίες εγγραφής / εισόδου</a></td>
+		</tr>
+		<tr>
+		<td><a href="announcements.html">Ανακοινώσεις</a></td>
+		</tr>
+		<tr class="active_session_class" style = "display: none">
+		<td class="active_session_class" style = "display: none"><a id="user_homepage_id" class="active_session_class" style = "display: none"> Αρχική σελίδα Χρήστη</a></td>
+		</tr>
+	  </table>
+	</td>
+
+	<script>
+	{
+	displayActiveSessionItems();
+	setUserHomepage();
+	}
+	</script> 	
+	
+	<!-- Κυρίως τμήμα -->	
+	<td class="main_board">
+	  <h1>
+	  <strong>Τελευταίες Ανακοινώσεις</strong>
+	  <h3>
+	  Δευτέρα, 27 Δεκέμβριος, 2021 - 22:45
+	  <br><h2>
+	  <a href="announcement_27_12_2021.html">
+	  Eνημέρωση διαπιστευμένων συντακτών για το Εθνικό Σχέδιο 
+	  εμβολιαστικής κάλυψης κατά της COVID-19, από την Πρόεδρο 
+	  της Εθνικής Επιτροπής Εμβολιασμών Μαρία Θεοδωρίδου και 
+	  τον Γ.Γ. Πρωτοβάθμιας Φροντίδας Υγείας Μάριο Θεμιστοκλέους<h2></a>
+	  </h3>
+	  <h3>
+	  Δευτέρα, 29 Νοέμβριος, 2021 - 22:32
+	  <br><h2>
+	  <a href="announcement_29_11_2021.html">
+	  Eνημέρωση διαπιστευμένων συντακτών για το Εθνικό Σχέδιο 
+	  εμβολιαστικής κάλυψης κατά της COVID-19, από την Πρόεδρο 
+	  της Εθνικής Επιτροπής Εμβολιασμών Μαρία Θεοδωρίδου και 
+	  τον Γ.Γ. Πρωτοβάθμιας Φροντίδας Υγείας Μάριο Θεμιστοκλέους
+	  <h2></a>
+	  </h3>
+	  <h3>
+	  Δευτέρα, 22 Νοέμβριος, 2021 - 23:28
+	  <br><h2>
+	  <a href="announcement_22_11_2021.html">
+	  Eνημέρωση διαπιστευμένων συντακτών για το Εθνικό Σχέδιο 
+	  εμβολιαστικής κάλυψης κατά της COVID-19, από την Πρόεδρο 
+	  της Εθνικής Επιτροπής Εμβολιασμών Μαρία Θεοδωρίδου και 
+	  τον Γ.Γ. Πρωτοβάθμιας Φροντίδας Υγείας Μάριο Θεμιστοκλέους
+	  <h2></a>
+	  </h3>
+	  </h1>
+	  <!-- Το κουμπί ανοίγει τη σελίδα Ανακοινώσεις -->
+	  <button class="button any-button centered-button" onclick="document.location='announcements.html'"> 
+	  ΔΕΙΤΕ ΟΛΕΣ ΤΙΣ ΑΝΑΚΟΙΝΩΣΕΙΣ</button>
+	  <h1>
+	  <br>
+	  <strong>Εκστρατεία εμβολιασμού</strong>
+	  </h1>
+	  <p>
+	  Η Εθνική Εκστρατεία Εμβολιασμού για την COVID-19 ξεκίνησε. 
+	  Το εμβόλιο είναι στα χέρια μας. Εγκεκριμένο για την ασφάλεια, 
+	  την ποιότητα και την αποτελεσματικότητά του από τους αρμόδιους 
+	  διεθνείς και εθνικούς οργανισμούς, τον Παγκόσμιο Οργανισμό Υγείας, 
+	  τον EMA (European Medicines Agency) και τον FDA (US Food and Drug 
+	  Administration).
+	  <br><br>
+	  Ο εμβολιασμός, δωρεάν για όλους, είναι σε εξέλιξη για τους ανθρώπους 
+	  στην πρώτη γραμμή της υγείας, εκπαιδευτικούς γενικής εκπαίδευσης 
+	  και για τις ηλικίες 5 ετών και άνω.
+	  <br><br>
+	  Η Εθνική Επιτροπή Εμβολιασμών μπορεί να αλλάξει την προτεραιότητα 
+	  ανάλογα με τον αριθμό των δόσεων που είναι διαθέσιμες. Το εμβόλιο 
+	  είναι προαιρετικό, αλλά απαραίτητο για να προστατεύσουμε τον εαυτό 
+	  μας και τους συνανθρώπους μας. Και δεν ξεχνάμε. Συνεχίζουμε να 
+	  φοράμε μάσκα και να κρατάμε αποστάσεις για όσο χρειαστεί.
+	  </p>
+	</td>
+  </tr>	
+</table>
+
+</body>
+
+<!-- Footer της σελίδας -->
+<footer>
+  <table style="width:100%">
+    <tr>
+	  <td style="text-align: center;">
+	      <br>
+		  <!-- Σύνδεσμος στους Όρους Χρήσης σε νέα καρτέλα -->	
+		  <a title="Όροι Χρήσης" href="documents/terms.pdf" target="_blank">Όροι Χρήσης</a> |
+		  <!-- Σύνδεσμος στην Πολιτική Απορρήτου σε νέα καρτέλα -->	
+		  <a title="Πολιτική απορρήτου" href="documents/policy.pdf" target="_blank"">Πολιτική απορρήτου</a>
+		  <br><br>
+	  </td>
+	</tr>
+  </table>
+</footer>
+
+
+</html>
+
+
